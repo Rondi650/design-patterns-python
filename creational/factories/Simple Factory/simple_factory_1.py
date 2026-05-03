@@ -53,7 +53,7 @@ class MotoPopular(Veiculo):
 
 class VeiculoFactory:
     @staticmethod
-    def get_carro(tipo: str) -> Veiculo:
+    def get_carro(tipo: str) -> Veiculo | None:
         if tipo == 'luxo':
             return CarroLuxo()
         if tipo == 'popular':
@@ -71,4 +71,5 @@ if __name__ == "__main__":
 
     for i in range(10):
         carro = VeiculoFactory.get_carro(choice(carros_disponiveis))
-        carro.buscar_cliente()
+        if carro:
+            carro.buscar_cliente()
