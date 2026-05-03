@@ -38,15 +38,16 @@ class VeiculoFactory(ABC):
 
     @staticmethod
     @abstractmethod
-    def get_carro(tipo: str) -> Veiculo: pass
+    def get_carro(tipo: str) -> Veiculo | None: pass
 
     def buscar_cliente(self) -> None:
-        self.carro.buscar_cliente()
+        if self.carro:
+            self.carro.buscar_cliente()
 
 
 class ZonaNorteVeiculoFactory(VeiculoFactory):
     @staticmethod
-    def get_carro(tipo: str) -> Veiculo:
+    def get_carro(tipo: str) -> Veiculo | None:
         if tipo == 'luxo':
             return CarroLuxo()
         if tipo == 'popular':
@@ -60,7 +61,7 @@ class ZonaNorteVeiculoFactory(VeiculoFactory):
 
 class ZonaSulVeiculoFactory(VeiculoFactory):
     @staticmethod
-    def get_carro(tipo: str) -> Veiculo:
+    def get_carro(tipo: str) -> Veiculo | None:
         if tipo == 'popular':
             return CarroPopular()
         assert 0, 'Veículo não existe'
