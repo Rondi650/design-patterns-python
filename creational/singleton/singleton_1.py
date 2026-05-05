@@ -11,6 +11,9 @@ http://www.informit.com/articles/article.aspx?p=1404056
 """
 
 
+import main
+
+
 class AppSettings:
     _instance = None
 
@@ -32,3 +35,4 @@ if __name__ == "__main__":
 
     as2 = AppSettings()
     print(as1.tema)
+
