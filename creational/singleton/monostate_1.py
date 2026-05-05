@@ -34,5 +34,6 @@ class MonoStateSimple(StringReprMixin):
 if __name__ == "__main__":
     m1 = MonoStateSimple(nome='Luiz')
     m2 = MonoStateSimple(sobrenome='Miranda')
+    print(m2.__dict__.items())
     print(m1)
     print(m2)
